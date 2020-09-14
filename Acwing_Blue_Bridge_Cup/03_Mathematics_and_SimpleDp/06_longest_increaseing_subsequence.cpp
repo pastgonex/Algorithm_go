@@ -1,11 +1,15 @@
+//
+// Created by Genes on 2020/9/11.
+//
 #include<iostream>
+#include<algorithm>
 
 using namespace std;
 
 const int N = 1e3 + 10;
 
 int n;
-int f[N], w[N];
+int dp[N], w[N];
 
 int main() {
     ios::sync_with_stdio(false);
@@ -13,18 +17,17 @@ int main() {
     for (int i = 1; i <= n; i++) {
         cin >> w[i];
     }
-
-    int res = 0;
-
+    int res = -1;
     for (int i = 1; i <= n; i++) {
-        f[i] = 1;
+        dp[i] = 1;
         for (int j = 1; j < i; j++) {
             if (w[i] > w[j]) {
-                f[i] = max(f[i], f[j] + 1);
+                dp[i] = max(dp[i], dp[j] + 1);
             }
         }
-        res = max(res, f[i]);
+        res = max(res, dp[i]);
     }
     cout << res << endl;
     return 0;
 }
+
