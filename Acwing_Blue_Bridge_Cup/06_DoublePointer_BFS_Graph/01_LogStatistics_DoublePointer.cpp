@@ -1,12 +1,12 @@
+// 双指针做法
+
 #include<iostream>
-#include <algorithm>
-#include<vector>
-#include<cstring>
+#include<algorithm>
+
+using namespace std;
 
 #define x first
 #define y second
-
-using namespace std;
 
 const int N = 1e5 + 10;
 
@@ -14,8 +14,8 @@ typedef pair<int, int> pii;
 
 int n, d, k;
 bool st[N];
+int cnt[N];
 pii logs[N];
-vector<int> ans;
 
 int main() {
     ios::sync_with_stdio(false);
@@ -26,20 +26,18 @@ int main() {
         cin >> logs[i].x >> logs[i].y;
     }
     sort(logs, logs + n);
-    for (int i = 0; i < n; i++) {
-        int cnt = 1;
-        int t = logs[i].x;
-        for (int j = i + 1; j < n; j++) {
-            if (logs[j].x - t < d && logs[j].y == logs[i].y) {
-                cnt++;
-            }
+    for (int i = 0, j = 0; i < n; i++) {
+        int id = logs[i].y;
+        cnt[id]++;
+        while (logs[i].x - logs[j].x >= d) {
+            cnt[logs[j].y]--;
+            j++;
         }
-        if (cnt >= k) {
-            st[logs[i].y] = true;
+        if (cnt[id] >= k) {
+            st[id] = true;
         }
     }
-
-    for (int i = 0; i <= 1e5 + 10; i++) {
+    for (int i = 0; i <= 1e5; i++) {
         if (st[i]) {
             cout << i << endl;
         }
