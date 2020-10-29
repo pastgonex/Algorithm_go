@@ -1,23 +1,19 @@
-//
-// Created by Genes on 2020/10/11.
-//
-//信息加密
-
 #include <iostream>
-#include<string>
 
 using namespace std;
 
-int main() {
-    string s;
+int arr[20];
 
-    getline(cin, s);
-
-    for (auto &c : s)
-        if (c >= 'a' && c <= 'z') c = (c - 'a' + 1) % 26 + 'a';
-        else if (c >= 'A' && c <= 'Z') c = (c - 'A' + 1) % 26 + 'A';
-
-    cout << s << endl;
+int main()
+{
+    int n;
+    cin >> n;
+    arr[1] = 1; arr[2] = 2;
+    for(int i = 3;i <=15;i++){
+        arr[i] = arr[i-1]+arr[i-2];
+    }
+    cout << arr[n];
 
     return 0;
+
 }

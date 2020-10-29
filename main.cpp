@@ -1,27 +1,24 @@
 #include<iostream>
 
+#include<algorithm>
+
 using namespace std;
 
-const int N = 1e5 + 10;
-
-int n;
-int a[N];
-
-int profit;
+bool cmp(int a, int b) {
+    return abs(a) < abs(b);
+}
 
 int main() {
-    ios::sync_with_stdio(false);
-    cin.tie(nullptr);
-    cout.tie(nullptr);
+    int n;
     cin >> n;
-    for (int i = 1; i <= n; i++) {
+    int a[100];
+    for (int i = 0; i < n; i++) {
         cin >> a[i];
     }
-    for (int i = 1; i < n; i++) {
-        if (a[i] < a[i + 1]) {
-            profit += a[i + 1] - a[i];
-        }
+    sort(a, a + n, cmp);
+    for (int i = 0; i < n; i++) {
+        cout << a[i] << " ";
     }
-    cout << profit << endl;
+    puts("");
     return 0;
 }
