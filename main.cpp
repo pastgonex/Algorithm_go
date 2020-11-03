@@ -1,24 +1,16 @@
-#include<iostream>
-
-#include<algorithm>
-
-using namespace std;
-
-bool cmp(int a, int b) {
-    return abs(a) < abs(b);
-}
+#include<stdio.h>
 
 int main() {
-    int n;
-    cin >> n;
-    int a[100];
-    for (int i = 0; i < n; i++) {
-        cin >> a[i];
+    int i, n, m;
+    for (i = 1; i <= 7; i++) {
+        scanf("%d%d", &n, &m);
+        if (n + m > 8) {
+            printf("%d", i);
+            break;
+        } else if (n + m <= 8) {
+            printf("0");
+            break;
+        }
     }
-    sort(a, a + n, cmp);
-    for (int i = 0; i < n; i++) {
-        cout << a[i] << " ";
-    }
-    puts("");
     return 0;
 }

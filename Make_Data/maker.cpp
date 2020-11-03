@@ -26,14 +26,59 @@ ll int_Rand(ll min, ll max) {
     return ll(min + rand() % (max - min));
 }
 
-void make_data(int m) //!造数据的函数
+void make_data(int k) //!造数据的函数
 {
-    printf("%d\n", m);
+    int a, b, h, w, n;
+    if (k <= 5) {
+        a = int_Rand(1, 1001);
+        b = int_Rand(1, 1001);
+        h = int_Rand(1, 1001);
+        w = int_Rand(1, 1001);
+        n = int_Rand(1, 1001);
+        printf("%d %d %d %d %d\n", a, b, h, w, n);
+        for (int i = 0; i < n; i++) {
+            if (i > 0) {
+                printf(" ");
+            }
+            printf("%d", int_Rand(2, 1001));
+        }
+        puts("");
+    }
+    if (k > 5 && k <= 15) {
+        a = int_Rand(1000, 50001);
+        b = int_Rand(1000, 50001);
+        h = int_Rand(1000, 50001);
+        w = int_Rand(1000, 50001);
+        n = int_Rand(1000, 50001);
+        printf("%d %d %d %d %d\n", a, b, h, w, n);
+        for (int i = 0; i < n; i++) {
+            if (i > 0) {
+                printf(" ");
+            }
+            printf("%d", int_Rand(2, 1001));
+        }
+        puts("");
+    }
+    if (k > 15) {
+        a = int_Rand(50001, 100001);
+        b = int_Rand(50001, 100001);
+        h = int_Rand(50001, 100001);
+        w = int_Rand(50001, 100001);
+        n = int_Rand(50001, 100001);
+        printf("%d %d %d %d %d\n", a, b, h, w, n);
+        for (int i = 0; i < n; i++) {
+            if (i > 0) {
+                printf(" ");
+            }
+            printf("%d", int_Rand(2, 1001));
+        }
+        puts("");
+    }
 }
 
 int main() {
     srand((unsigned) time(NULL));
-    for (int i = 1; i <= 15; i++) { //!生成 GROUP_NUM个in
+    for (int i = 1; i <= 20; i++) { //!生成 GROUP_NUM个in
         char s[10000];
         sprintf(s, "%d.in", i);  //!生成对应的in
         freopen(s, "w", stdout); //!把输出的东西重定向到in
