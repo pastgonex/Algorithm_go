@@ -19,7 +19,6 @@
 // 字典序最小, 步数最小的题型(猜测答案是唯一的)
 #include <algorithm>
 #include <cstdio>
-#include <cstring>
 #include <iostream>
 #include <vector>
 

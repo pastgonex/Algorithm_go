@@ -13,9 +13,30 @@ const int N = 1e5 + 10;
 
 int n;
 int a[N];
+int prime[N];
+int st[N];
+int cnt;
+int v[N];
 
 int gcd(int a, int b) {
     return b ? gcd(b, a % b) : a;
+}
+
+void get_prime(int n) {
+    for (int i = 2; i <= n; i++) {
+        if (!st[i]) {
+            primes[++cnt] = i;
+            min_p[i] = i;
+        }
+        for (int j = 1; primes[j] * i <= n; j++) {
+            int t = primes[j] * i;
+            st[t] = true;
+            min_p[t] = primes[j];
+            if (i % primes[j] == 0) {
+                break;
+            }
+        }
+    }
 }
 
 int main() {
