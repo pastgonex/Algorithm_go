@@ -1,44 +1,30 @@
-#include <algorithm>
-#include <bitset>
-#include <cassert>
-#include <cctype>
-#include <climits>
-#include <cmath>
-#include <cstdio>
-#include <cstdlib>
-#include <cstring>
-#include <deque>
-#include <iostream>
-#include <list>
-#include <map>
-#include <set>
-#include <stack>
-#include <string>
-#include <vector>
+// Forward declaration of compare API.
+// bool compare(int a, int b);
+// return bool means whether a is less than b.
 
-#define ios                               \
-    ios::sync_with_stdio(false); \
-    cin.tie(nullptr);                     \
-    cout.tie(nullptr)
-#define for_1(begin, end) for (int begin = 1; begin <= end; begin++)
-#define for_0(begin, end) for (int being = 0; being < end; begin++)
-#define for_(begin, val, end) for (int begin = val; begin < end; begin++)
-#define for__(begin, val, end) for (int begin = val; begin <= end; begin++)
-
-using namespace std;
-
-typedef long long ll;
-typedef long double ld;
-
-const int N = 1e5 + 10;
-const int inf = 0x3f3f3f3f;
-const double PI = acos(-1.0);
-const double eps = 1e-6;
-
-int main() {
-    ios;
-    int n;
-    cin >> n;
-    cout << n << endl;
-    return 0;
-}
+class Solution {
+public:
+    vector<int> specialSort(int N) {
+        vector<int> res;
+        res.push_back(1); //先插入1, 后面的元素就能和1比较
+        for (int i = 2; i <= N; i++) {
+            int l = 0, r = res.size() - 1;
+            while (l < r) {
+                int mid = (l + r + 1) >> 1;
+                if (compare(res[mid], i)) {
+                    l = mid;
+                } else {
+                    r = mid - 1;
+                }
+            }
+            res.push_back(i);
+            for (int j = res.size() - 2; j > r; j--) {
+                swap(res[j], res[j + 1]);
+            }
+            if (compare(i, res[r])) {
+                swap(res[r], res[r + 1]);
+            }
+        }
+        return res;
+    }
+};

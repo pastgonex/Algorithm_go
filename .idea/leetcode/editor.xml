@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="LeetcodeEditor">
+    <option name="projectConfig">
+      <map>
+        <entry key="$PROJECT_DIR$/../Leetcode_temp/leetcode/editor/cn/[19]删除链表的倒数第N个节点.cpp">
+          <value>
+            <LeetcodeEditor>
+              <option name="path" value="$PROJECT_DIR$/../Leetcode_temp/leetcode/editor/cn/[19]删除链表的倒数第N个节点.cpp" />
+              <option name="questionId" value="19" />
+            </LeetcodeEditor>
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../Leetcode_temp/leetcode/editor/cn/[1]两数之和.cpp">
+          <value>
+            <LeetcodeEditor>
+              <option name="path" value="$PROJECT_DIR$/../Leetcode_temp/leetcode/editor/cn/[1]两数之和.cpp" />
+              <option name="questionId" value="1" />
+            </LeetcodeEditor>
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../Leetcode_temp/leetcode/editor/cn/[55]跳跃游戏.cpp">
+          <value>
+            <LeetcodeEditor>
+              <option name="path" value="$PROJECT_DIR$/../Leetcode_temp/leetcode/editor/cn/[55]跳跃游戏.cpp" />
+              <option name="questionId" value="55" />
+            </LeetcodeEditor>
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../Leetcode_temp/leetcode/editor/cn/[65]有效数字.cpp">
+          <value>
+            <LeetcodeEditor>
+              <option name="path" value="$PROJECT_DIR$/../Leetcode_temp/leetcode/editor/cn/[65]有效数字.cpp" />
+              <option name="questionId" value="65" />
+            </LeetcodeEditor>
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../Leetcode_temp/leetcode/editor/cn/[813]最大平均值和的分组.cpp">
+          <value>
+            <LeetcodeEditor>
+              <option name="path" value="$PROJECT_DIR$/../Leetcode_temp/leetcode/editor/cn/[813]最大平均值和的分组.cpp" />
+              <option name="questionId" value="831" />
+            </LeetcodeEditor>
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../Leetcode_temp/leetcode/editor/cn/[927]三等分.cpp">
+          <value>
+            <LeetcodeEditor>
+              <option name="path" value="$PROJECT_DIR$/../Leetcode_temp/leetcode/editor/cn/[927]三等分.cpp" />
+              <option name="questionId" value="963" />
+            </LeetcodeEditor>
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+</project>
