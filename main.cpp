@@ -1,41 +1,21 @@
-#include <algorithm>
-#include <bitset>
-#include <cassert>
-#include <cctype>
-#include <climits>
-#include <cmath>
-#include <cstdio>
-#include <cstdlib>
-#include <cstring>
-#include <deque>
-#include <iostream>
-#include <list>
-#include <map>
-#include <set>
-#include <stack>
-#include <string>
-#include <vector>
-
-#define ios                               \
-    ios::sync_with_stdio(false); \
-    cin.tie(nullptr);                     \
-    cout.tie(nullptr)
-#define for_1(begin, end) for (int begin = 1; begin <= end; begin++)
-#define for_0(begin, end) for (int being = 0; being < end; begin++)
-#define for_(begin, val, end) for (int begin = val; begin < end; begin++)
-#define for__(begin, val, end) for (int begin = val; begin <= end; begin++)
+#include<iostream>
 
 using namespace std;
 
 typedef long long ll;
-typedef long double ld;
 
-const int N = 1e5 + 10;
-const int inf = 0x3f3f3f3f;
-const double PI = acos(-1.0);
-const double eps = 1e-6;
+int a, b, q;
 
 int main() {
-    ios;
-
+    cin >> a >> b >> q;  // a^b % q
+    int res = 1 % q;//¿¼ÂÇ q=1µÄÇé¿ö
+    while (b) {
+        if (b & 1) {
+            res = res * 1ll * a % q;
+        }
+        a = (ll) a * a;
+        b >>= 1;
+    }
+    cout << res << endl;
+    return 0;
 }

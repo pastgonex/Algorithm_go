@@ -2,23 +2,7 @@
 // Created by Genes on 2020/11/28.
 //
 // 高精度加法
-
-#include <algorithm>
-#include <bitset>
-#include <cassert>
-#include <cctype>
-#include <climits>
-#include <cmath>
-#include <cstdio>
-#include <cstdlib>
-#include <cstring>
-#include <deque>
 #include <iostream>
-#include <list>
-#include <map>
-#include <set>
-#include <stack>
-#include <string>
 #include <vector>
 
 #define ios                               \
@@ -27,14 +11,6 @@
     cout.tie(nullptr)
 
 using namespace std;
-
-typedef long long ll;
-typedef long double ld;
-
-const int N = 1e6 + 10;
-const int inf = 0x3f3f3f3f;
-const double PI = acos(-1.0);
-const double eps = 1e-6;
 
 string a, b;
 vector<int> A, B;
