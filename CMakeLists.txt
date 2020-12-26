@@ -7,7 +7,7 @@ set(CMAKE_CXX_STANDARD 11)
 file (GLOB_RECURSE files *.cpp)
 foreach (file ${files})
     string(REGEX REPLACE ".+/(.+)\\..*" "\\1" exe ${file})
-    add_executable (${exe} ${file} Advanced_Guide_to_Algorithmic_Competitions/02_Basic_Data_Structures/0x11_Stack/01_Stack_containing_min_Function.cpp Advanced_Guide_to_Algorithmic_Competitions/02_Basic_Data_Structures/0x11_Stack/02_Editor.cpp Advanced_Guide_to_Algorithmic_Competitions/02_Basic_Data_Structures/0x11_Stack/03_Train_Entry.cpp)
+    add_executable (${exe} ${file} Acwing_Basic_Algorithm_Course/02_Data_Structures/04_Queue/01_Simulation_Queue.cpp Advanced_Guide_to_Algorithmic_Competitions/02_Basic_Data_Structures/0x12_Queue/01_Team_Queue.cpp)
     message (\ \ \ \ --\ src/${exe}.cpp\ will\ be\ compiled\ to\ bin/${exe})
 endforeach ()
 

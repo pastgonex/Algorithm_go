@@ -3,7 +3,7 @@
 //
 // 第k个数
 
-#include<iostream>
+#include <iostream>
 
 using namespace std;
 
@@ -19,8 +19,12 @@ int quick_select(int l, int r, int k) {
     int x = q[l + r >> 1];
     int i = l - 1, j = r + 1;
     while (i < j) {
-        do i++; while (q[i] < x);
-        do j--; while (q[j] > x);
+        do
+            i++;
+        while (q[i] < x);
+        do
+            j--;
+        while (q[j] > x);
         if (i < j) {
             swap(q[i], q[j]);
         }
