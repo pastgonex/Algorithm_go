@@ -1,4 +1,8 @@
+
 {
+    "workbench.sideBar.location": "right",
+    "window.title": "${dirty}${activeEditorLong}${separator}${rootName}${separator}${appName}",
+    "editor.wordSeparators": "`~!@#$%^&*()-=+[{]}\\|;:'\",.<>/?·～！￥…（）—【】、；：‘’“”，。《》？ ",
     "files.defaultLanguage": "c++", // ctrl+N新建文件后默认的语言
     "editor.formatOnType": false, // （对于C/C++）输入分号后自动格式化当前这一行的代码
     "editor.suggest.snippetsPreventQuickSuggestions": true, // clangd的snippets有很多的跳转点，不用这个就必须手动触发Intellisense了
@@ -16,16 +20,16 @@
     "editor.smoothScrolling": false, // 滚动平滑，不过效果很微弱
     "files.trimTrailingWhitespace": true, // 保存时，删除每一行末尾的空格
     "files.insertFinalNewline": true, // 保存后文件最末尾加一整行空行，Linux下的习惯
-    "files.autoGuessEncoding": false, // 启用后，会在打开文件时尝试猜测字符集编码。我关闭的理由见6，默认也是禁用的
+    "files.autoGuessEncoding": true, // 启用后，会在打开文件时尝试猜测字符集编码。我关闭的理由见6，默认也是禁用的
     "workbench.settings.useSplitJSON": false, // 恢复手动编辑时的两列设置
     "window.zoomLevel": 0, // 整体放大
     "git.enabled": true, // 如果你不用git，可以考虑关闭它
     "git.ignoreMissingGitWarning": true, // 同上
     "[c]": {
-        "files.encoding": "gbk" // 这样的格式可以对指定后缀的文件应用设置，如果你实在想用gbk，就这样设置吧。cpp同理。
+        "files.encoding": "utf8" // 这样的格式可以对指定后缀的文件应用设置，如果你实在想用gbk，就这样设置吧。cpp同理。
     },
     "[c++]": {
-        "files.encoding": "gbk" // 这样的格式可以对指定后缀的文件应用设置，如果你实在想用gbk，就这样设置吧。cpp同理。
+        "files.encoding": "utf8" // 这样的格式可以对指定后缀的文件应用设置，如果你实在想用gbk，就这样设置吧。cpp同理。
     },
     "files.associations": {
         "iostream": "cpp",
@@ -98,7 +102,8 @@
         "thread": "cpp",
         "typeindex": "cpp",
         "typeinfo": "cpp",
-        "valarray": "cpp"
+        "valarray": "cpp",
+        "queue": "cpp"
     },
-    "C_Cpp.errorSquiggles": "Disabled",
+    "C_Cpp.errorSquiggles": "Enabled",
 }
