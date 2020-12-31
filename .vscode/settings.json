@@ -103,7 +103,8 @@
         "typeindex": "cpp",
         "typeinfo": "cpp",
         "valarray": "cpp",
-        "queue": "cpp"
+        "queue": "cpp",
+        "xstring": "cpp"
     },
     "C_Cpp.errorSquiggles": "Enabled",
 }

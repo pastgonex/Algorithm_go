@@ -18,9 +18,28 @@
 //         cout << -1 << " ";
 //     }
 #include <iostream>
+#include <stack>
 
 using namespace std;
 
+stack<int> stk;
+
+int n;
+
 int main() {
-    
+    cin >> n;
+    for (int i = 0; i < n; i++) {
+        int x;
+        cin >> x;
+        while (!stk.empty() && stk.top() >= x) {
+            stk.pop();
+        }
+        if (!stk.empty()) {
+            cout << stk.top() << " ";
+        } else {
+            cout << -1 << " ";
+        }
+        stk.push(x);
+    }
+    return 0;
 }

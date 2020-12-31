@@ -3,13 +3,13 @@
 //
 // 包含min函数的栈
 
-#include<iostream>
-#include<stack>
+#include <iostream>
+#include <stack>
 
 using namespace std;
 
 class MinStack {
-public:
+   public:
     /** initialize your data structure here. */
     stack<int> Stack, StackMin;
 
@@ -29,13 +29,9 @@ public:
         Stack.pop();
     }
 
-    int top() {
-        return Stack.top();
-    }
+    int top() { return Stack.top(); }
 
-    int getMin() {
-        return StackMin.top();
-    }
+    int getMin() { return StackMin.top(); }
 };
 
 /**
