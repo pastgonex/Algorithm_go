@@ -1,42 +1,47 @@
-#include <cstring>
+#include <algorithm>
 #include <iostream>
 
 using namespace std;
 
-const int N = 100'007;
+typedef pair<int, int> PII;
 
+const int N = 2e5 + 10;
+
+#define value first
+#define before_sort second
+
+PII a[N];
 int n;
-char in[N];
-bool used[N];
-
-void solve() {
-    scanf("%s", in + 1);
-    n = strlen(in + 1);
-
-    for (int i = 1; i <= n; ++i)
-        used[i] = false;
-
-    int ans = 0;
-    for (int i = 2; i <= n; ++i) {
-        bool use_need = false;
-        if (in[i] == in[i - 1] && !used[i - 1])
-            use_need = true;
-
-        if (i > 2 && in[i] == in[i - 2] && !used[i - 2])
-            use_need = true;
-
-        used[i] = use_need;
-        ans += used[i];
-    }
-
-    printf("%d\n", ans);
-}
-
 int main() {
-    int cases;
-    scanf("%d", &cases);
-
-    while (cases--)
-        solve();
+    cin >> n;
+    for (int i = 0; i < n; i++) {
+        cin >> a[i].value;
+        a[i].before_sort = i;
+    }
+    sort(a, a + n);
+    int res = 1;
+    for (int i = 0, last = n + 1, dir = -1; i < n;) {
+        int j = i + 1;
+        while (j < n && a[i].value == a[j].value) {
+            j++;
+        }
+        int minx = a[i].before_sort, maxx = a[j - 1].before_sort;
+        if (dir == -1) {
+            if (last > maxx) {
+                last = minx;
+            } else {
+                last = maxx, dir = 1;
+            }
+        } else {
+            if (last < minx) {
+                last = maxx;
+            } else {
+                res++;
+                last = minx;
+                dir = -1;
+            }
+        }
+    }
+    cout<<res<<endl;
     return 0;
 }

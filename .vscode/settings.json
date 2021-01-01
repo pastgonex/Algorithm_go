@@ -104,7 +104,21 @@
         "typeinfo": "cpp",
         "valarray": "cpp",
         "queue": "cpp",
-        "xstring": "cpp"
+        "xstring": "cpp",
+        "concepts": "cpp",
+        "xfacet": "cpp",
+        "xhash": "cpp",
+        "xiosbase": "cpp",
+        "xlocale": "cpp",
+        "xlocinfo": "cpp",
+        "xlocmon": "cpp",
+        "xlocnum": "cpp",
+        "xloctime": "cpp",
+        "xmemory": "cpp",
+        "xstddef": "cpp",
+        "xtree": "cpp",
+        "xutility": "cpp",
+        "*.rh": "cpp"
     },
     "C_Cpp.errorSquiggles": "Enabled",
 }

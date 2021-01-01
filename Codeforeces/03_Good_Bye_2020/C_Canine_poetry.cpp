@@ -10,9 +10,9 @@ using namespace std;
 
 const int N = 1e5 + 10;
 
+string s;
 int t;
 bool used[N];
-string s;
 
 void solve() {
     cin >> s;
@@ -27,7 +27,7 @@ void solve() {
             use_need = true;
         }
         used[i] = use_need;
-        ans += use_need;
+        ans += used[i];
     }
     cout << ans << endl;
 }
@@ -38,4 +38,4 @@ int main() {
         solve();
     }
     return 0;
-}
+} 
