@@ -4,7 +4,7 @@
 // 小朋友排队
 // 归并排序
 
-#include<iostream>
+#include <iostream>
 
 using namespace std;
 
@@ -15,9 +15,9 @@ typedef long long ll;
 int n;
 
 struct {
-    int h; //身高
-    int idx;//上一次位置
-    ll m; //移动长度
+    int h;    //身高
+    int idx;  //上一次位置
+    ll m;     //移动长度
 } q[N], tmp[N];
 
 void merge_sort(int l, int r) {

@@ -5,8 +5,8 @@
 // 树状数组做法
 // 可以通过树状数组来求  比A大的数 | A | 比A小的数
 
-#include<iostream>
-#include<cstring>
+#include <cstring>
+#include <iostream>
 
 using namespace std;
 
@@ -16,7 +16,7 @@ typedef long long ll;
 
 int n;
 int c[N], a[N];
-int sum[N];//sum数组存储每个小朋友的不高兴度
+int sum[N];  // sum数组存储每个小朋友的不高兴度
 
 int lowbit(int x) {
     return x & -x;
@@ -43,7 +43,7 @@ int main() {
     cin >> n;
     for (int i = 0; i < n; i++) {
         cin >> a[i];
-        a[i]++;//身高是从0开始,所以++ 从1开始
+        a[i]++;  //身高是从0开始,所以++ 从1开始
     }
     // 求每个数前面有多少个数比它大
     for (int i = 0; i < n; i++) {
@@ -63,7 +63,7 @@ int main() {
     ll res = 0;
     for (int i = 0; i < n; i++) {
         //等差数列求和 不高兴度的总和为从1+2+..+sum[i]
-        res += (ll) sum[i] * (sum[i] + 1) / 2;
+        res += (ll)sum[i] * (sum[i] + 1) / 2;
     }
 
     cout << res << endl;

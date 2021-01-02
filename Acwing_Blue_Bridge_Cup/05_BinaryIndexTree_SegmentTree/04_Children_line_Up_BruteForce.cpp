@@ -5,7 +5,7 @@
 // 求出 a[i]的逆序对
 // 暴力做法 ,直接两重循环或者 使用 归并排序
 
-#include<iostream>
+#include <iostream>
 
 using namespace std;
 
