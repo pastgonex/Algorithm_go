@@ -3,13 +3,13 @@
 //
 // 区间和
 
-#include<iostream>
-#include<vector>
-#include<algorithm>
+#include <algorithm>
+#include <iostream>
+#include <vector>
 
-#define ios                               \
+#define ios                      \
     ios::sync_with_stdio(false); \
-    cin.tie(nullptr);                     \
+    cin.tie(nullptr);            \
     cout.tie(nullptr)
 
 using namespace std;
@@ -21,20 +21,21 @@ const int N = 3e5 + 10;
 int n, m;
 int a[N], s[N];
 
-vector<int> alls;//存离散化之后的坐标
+vector<int> alls;  //存离散化之后的坐标
 vector<pii> add, query;
 
-int find(int x) { // 在离散化后的数组中, 查找一个值为x的下标(第一个>=x), 并将其返回
+int find(
+    int x) {  // 在离散化后的数组中, 查找一个值为x的下标(第一个>=x), 并将其返回
     int l = 0, r = alls.size() - 1;
     while (l < r) {
-        int mid = l + r >> 1;
+        int mid = (l + r) >> 1;
         if (alls[mid] >= x) {
             r = mid;
         } else {
             l = mid + 1;
         }
     }
-    return r + 1; //为了方便前缀和, 下标从1开始
+    return r + 1;  //为了方便前缀和, 下标从1开始
 }
 
 int main() {
@@ -74,5 +75,4 @@ int main() {
         cout << s[r] - s[l - 1] << endl;
     }
     return 0;
-
 }

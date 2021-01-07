@@ -5,9 +5,9 @@
 // 快速幂
 #include <iostream>
 
-#define ios                               \
+#define ios                      \
     ios::sync_with_stdio(false); \
-    cin.tie(nullptr);                     \
+    cin.tie(nullptr);            \
     cout.tie(nullptr)
 
 using namespace std;
@@ -22,9 +22,9 @@ int quick_pow(int a, int b, int mod) {
     int ans = 1 % p;
     while (b) {
         if (b & 1) {
-            ans = ans * (ll) a % p; // ans* a^(2^k)
+            ans = ans * (ll)a % p;  // ans* a^(2^k)
         }
-        a = (ll) a * a % p;  // a^(2^(n+1)) = a^(2^n) * a^(2^n)
+        a = (ll)a * a % p;  // a^(2^(n+1)) = a^(2^n) * a^(2^n)
         b >>= 1;
     }
     return ans;

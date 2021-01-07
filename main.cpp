@@ -1,34 +1,49 @@
+#include <algorithm>
 #include <iostream>
 
 using namespace std;
 
-const int N = 100010, M = 1000010;
+const int N = 100010, M = 3100010;
 
-int n, m;
-int ne[N];
-char s[M], p[N];
+int n;
+int a[N], son[M][2], idx;
+
+void insert(int x) {
+    int p = 0;
+    for (int i = 30; i >= 0; i--) {
+        int& s = son[p][x >> i & 1];
+        if (!s)
+            s = ++idx;
+        p = s;
+    }
+}
+
+int search(int x) {
+    int p = 0, res = 0;
+    for (int i = 30; i >= 0; i--) {
+        int s = x >> i & 1;
+        if (son[p][!s]) {
+            res += 1 << i;
+            p = son[p][!s];
+        } else
+            p = son[p][s];
+    }
+    return res;
+}
 
 int main() {
-    cin >> n >> p + 1 >> m >> s + 1;
-
-    for (int i = 2, j = 0; i <= n; i++) {
-        while (j && p[i] != p[j + 1])
-            j = ne[j];
-        if (p[i] == p[j + 1])
-            j++;
-        ne[i] = j;
+    scanf("%d", &n);
+    for (int i = 0; i < n; i++) {
+        scanf("%d", &a[i]);
+        insert(a[i]);
     }
 
-    for (int i = 1, j = 0; i <= m; i++) {
-        while (j && s[i] != p[j + 1])
-            j = ne[j];
-        if (s[i] == p[j + 1])
-            j++;
-        if (j == n) {
-            printf("%d ", i - n);
-            j = ne[j];
-        }
-    }
+    int res = 0;
+    for (int i = 0; i < n; i++)
+        res = max(res, search(a[i]));
+
+    printf("%d\n", res);
 
     return 0;
 }
+

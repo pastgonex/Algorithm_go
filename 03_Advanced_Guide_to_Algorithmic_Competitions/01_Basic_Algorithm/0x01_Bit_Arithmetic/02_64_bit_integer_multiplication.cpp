@@ -3,7 +3,7 @@
 //
 // 64位整数乘法
 
-#include<iostream>
+#include <iostream>
 
 using namespace std;
 
@@ -25,6 +25,6 @@ ll slow_mul(ll a, ll b, ll mod) {
 
 int main() {
     cin >> a >> b >> q;
-    cout << slow_mul(a, b, q) << endl; //龟速乘
+    cout << slow_mul(a, b, q) << endl;  //龟速乘
     return 0;
 }
