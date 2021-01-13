@@ -2,8 +2,7 @@
 // Created by Genes on 2020/11/18.
 //
 // 数的范围
-
-#include<iostream>
+#include <iostream>
 
 using namespace std;
 
@@ -25,7 +24,7 @@ int main() {
         cin >> k;
         int l = 0, r = n - 1;
         while (l < r) {
-            int mid = l + r >> 1;
+            int mid = (l + r) >> 1;
             if (a[mid] < k) {
                 l = mid + 1;
             } else {
@@ -39,7 +38,7 @@ int main() {
             // 此时的=k区间的左端点, 更新一下r的值
             r = n - 1;
             while (l < r) {
-                int mid = l + r + 1 >> 1;
+                int mid = (l + r + 1) >> 1;
                 if (a[mid] <= k) {
                     l = mid;
                 } else {
@@ -51,4 +50,3 @@ int main() {
     }
     return 0;
 }
-

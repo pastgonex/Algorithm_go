@@ -16,7 +16,7 @@ void merge_sort(int l, int r) {
     if (l >= r) {
         return;
     }
-    int mid = l + r >> 1;
+    int mid = (l + r) >> 1;
     merge_sort(l, mid), merge_sort(mid + 1, r);
     int i = l, j = mid + 1, k = 0;
     while (i <= mid && j <= r) {

@@ -7,9 +7,9 @@
 #include <algorithm>
 #include <iostream>
 
-#define ios                               \
+#define ios                      \
     ios::sync_with_stdio(false); \
-    cin.tie(nullptr);                     \
+    cin.tie(nullptr);            \
     cout.tie(nullptr)
 
 using namespace std;
@@ -25,13 +25,13 @@ int main() {
         cin >> a[i];
     }
     int res = 0;
-//    for (int i = 0; i < n; i++) {
-//        for (int j = i; j < n; j++) {
-//            if (check(i, j)) {
-//                res = max(res, j - i + 1);
-//            }
-//        }
-//    }
+    //    for (int i = 0; i < n; i++) {
+    //        for (int j = i; j < n; j++) {
+    //            if (check(i, j)) {
+    //                res = max(res, j - i + 1);
+    //            }
+    //        }
+    //    }
     for (int i = 0, j = 0; i < n; i++) {
         cnt[a[i]]++;
         while (cnt[a[i]] > 1) {

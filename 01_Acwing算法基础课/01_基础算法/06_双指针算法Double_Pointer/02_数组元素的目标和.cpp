@@ -3,9 +3,9 @@
 //
 #include <iostream>
 
-#define ios                               \
+#define ios                      \
     ios::sync_with_stdio(false); \
-    cin.tie(nullptr);                     \
+    cin.tie(nullptr);            \
     cout.tie(nullptr)
 
 using namespace std;

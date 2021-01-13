@@ -3,9 +3,9 @@
 //
 #include <iostream>
 
-#define ios                               \
+#define ios                      \
     ios::sync_with_stdio(false); \
-    cin.tie(nullptr);                     \
+    cin.tie(nullptr);            \
     cout.tie(nullptr)
 
 using namespace std;
@@ -33,12 +33,12 @@ int main() {
         }
     }
     // xc哥写法
-//    int i = 0, j = 0;
-//    while (i < n && j < m)
-//    {
-//        if (a[i] == b[j]) i ++ ;
-//        j ++ ;
-//    }
+    //    int i = 0, j = 0;
+    //    while (i < n && j < m)
+    //    {
+    //        if (a[i] == b[j]) i ++ ;
+    //        j ++ ;
+    //    }
 
     if (j == n) {
         cout << "Yes" << endl;
