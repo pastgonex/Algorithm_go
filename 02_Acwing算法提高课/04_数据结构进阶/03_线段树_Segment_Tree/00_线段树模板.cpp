@@ -62,10 +62,10 @@ int main() {
     int x;
     char op[2];
     while (m--) {
-        scanf("%s%d", op, &x);
+        cin >> op >> x;
         if (*op == 'Q') {
             last = query(1, n - x + 1, n);
-            printf("%d\n", last);
+            cout << last << endl;
         } else {
             change(1, n + 1, (last + x) % p);
             n++;
