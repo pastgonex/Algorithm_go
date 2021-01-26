@@ -1,5 +1,6 @@
 
 {
+    "workbench.sideBar.location": "right",
     "window.title": "${dirty}${activeEditorLong}${separator}${rootName}${separator}${appName}",
     "editor.wordSeparators": "`~!@#$%^&*()-=+[{]}\\|;:'\",.<>/?·～！￥…（）—【】、；：‘’“”，。《》？ ",
     "files.defaultLanguage": "c++", // ctrl+N新建文件后默认的语言

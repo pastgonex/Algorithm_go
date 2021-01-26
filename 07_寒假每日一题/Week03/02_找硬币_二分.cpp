@@ -8,13 +8,15 @@ const int N = 1e5 + 10;
 int n, m;
 int a[N];
 
-bool find(int x, int y) {
+bool find(int x, int y)
+{
     int l = 0, r = n - 1;
     while (l < r) {
         int mid = (l + r) >> 1;
         if (a[mid] >= y) {
             r = mid;
-        } else {
+        }
+        else {
             l = mid + 1;
         }
     }
@@ -27,7 +29,8 @@ bool find(int x, int y) {
     return a[l] == a[l + 1];
 }
 
-int main() {
+int main()
+{
     cin >> n >> m;
     for (int i = 0; i < n; i++) {
         cin >> a[i];
