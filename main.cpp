@@ -1,8 +1,10 @@
-#include<iostream>
+#include <iostream>
 
 using namespace std;
 
-int main(){
-    cout<<"hello world"<<endl;
+int main() {
+    int n;
+    cin >> n;
+    cout << "hello world" << endl;
     return 0;
 }
