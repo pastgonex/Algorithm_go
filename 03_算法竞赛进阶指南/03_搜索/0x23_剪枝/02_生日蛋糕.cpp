@@ -1,14 +1,21 @@
+/*
+ * File: 02_生日蛋糕.cpp
+ * Project: 0x23_剪枝
+ * File Created: Saturday, 13th February 2021 10:51:11 pm
+ * Author: Bug-Free
+ * Problem: AcWing 168. 生日蛋糕
+ */
 #include <algorithm>
 #include <cmath>
 #include <iostream>
 
 using namespace std;
 
-const int N = 2e1 + 5, INF = 1e9;
+const int N = 25, INF = 1e9;
 
 int n, m;
+int minv[N], mins[N];
 int R[N], H[N];
-int minv[N], mins[N];  // 前u层的体积/面积最小值
 int ans = INF;
 
 void dfs(int u, int v, int s)
@@ -23,8 +30,7 @@ void dfs(int u, int v, int s)
         return;
     }
     if (!u) {
-        // ans = s;
-        if(v==n){
+        if (v == n) {
             ans = s;
         }
         return;
@@ -49,15 +55,13 @@ int main()
         mins[i] = mins[i - 1] + 2 * i * i;
     }
 
-    H[m + 1] = R[m + 1] = INF;
+    R[m + 1] = H[m + 1] = INF;
 
     dfs(m, 0, 0);
 
     if (ans == INF) {
         ans = 0;
     }
-
     cout << ans << endl;
-
     return 0;
 }

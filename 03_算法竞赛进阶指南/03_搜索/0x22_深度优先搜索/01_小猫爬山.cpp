@@ -15,11 +15,13 @@ int cat[N], cab[N];
 int n, w;
 int ans;
 
-bool cmp(int a, int b) {
+bool cmp(int a, int b)
+{
     return a > b;
 }
 
-void dfs(int now, int cnt) {
+void dfs(int now, int cnt)
+{
     if (cnt >= ans) {
         return;
     }
@@ -42,7 +44,8 @@ void dfs(int now, int cnt) {
     cab[cnt + 1] = 0;
 }
 
-int main() {
+int main()
+{
     cin >> n >> w;
     for (int i = 1; i <= n; i++) {
         cin >> cat[i];

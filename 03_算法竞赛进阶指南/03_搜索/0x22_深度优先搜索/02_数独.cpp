@@ -1,28 +1,31 @@
 /*
+ * File: 02_数独.cpp
  * Project: 0x22_深度优先搜索
- * File Created:Wednesday, January 27th 2021, 8:01:50 pm
+ * File Created: Sunday, 31st January 2021 11:03:00 pm
  * Author: Bug-Free
- * Problem: AcWing 166. 数独
+ * Problem:
  */
+
 #include <algorithm>
 #include <iostream>
 
 using namespace std;
 
 const int N = 9;
-
 // 0- 511
-// ones 快速求出一个状态有多少个1
-// map快速求出 log_2 ^x  的值   log_2 ^ 8 = 3   map[8] = 3;
-int ones[1 << N], map[1 << N];
-int row[N], col[N], cell[3][3];
+// ones[i] 表示i这个数字的二进制表示中， 有多少个1
+// map快速求出log_2[x], 例如： map[8] = 3;
+int  ones[1 << N], map[1 << N];
+int  row[N], col[N], cell[3][3];
 char str[100];
 
-inline int lowbit(int x) {
+inline int lowbit(int x)
+{
     return x & -x;
 }
 
-void init() {
+void init()
+{
     for (int i = 0; i < N; i++) {
         row[i] = col[i] = (1 << N) - 1;
     }
@@ -33,19 +36,21 @@ void init() {
     }
 }
 
-// 求可选方案的交集
-inline int get(int x, int y) {
+// 求可选方案的交集，返回一个数字
+inline int get(int x, int y)
+{
     return row[x] & col[y] & cell[x / 3][y / 3];
 }
 
-bool dfs(int cnt) {
+bool dfs(int cnt)
+{
     if (!cnt) {
         return true;
     }
 
-    // 找出可选方案最少的空格
+    // 找出可选方案最少的位置
     int minv = 10;
-    int x, y;
+    int x, y;  //可能方案最少的位置的横纵坐标
     for (int i = 0; i < N; i++) {
         for (int j = 0; j < N; j++) {
             if (str[i * 9 + j] == '.') {
@@ -65,8 +70,9 @@ bool dfs(int cnt) {
         row[x] -= 1 << t;
         col[y] -= 1 << t;
         cell[x / 3][y / 3] -= 1 << t;
-        str[x * 9 + y] = '1' + t;
+        str[x * 9 + y] = '1' + t;  //二维变一维
 
+        //如果能成功， 那么就返回true
         if (dfs(cnt - 1)) {
             return true;
         }
@@ -81,7 +87,8 @@ bool dfs(int cnt) {
     return false;
 }
 
-int main() {
+int main()
+{
     for (int i = 0; i < N; i++) {
         map[1 << i] = i;
     }
@@ -95,7 +102,6 @@ int main() {
 
     while (cin >> str, str[0] != 'e') {
         init();
-
         int cnt = 0;
         for (int i = 0, k = 0; i < N; i++) {
             for (int j = 0; j < N; j++, k++) {
@@ -104,7 +110,8 @@ int main() {
                     row[i] -= 1 << t;
                     col[j] -= 1 << t;
                     cell[i / 3][j / 3] -= 1 << t;
-                } else {
+                }
+                else {
                     cnt++;
                 }
             }
