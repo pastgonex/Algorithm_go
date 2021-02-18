@@ -78,28 +78,31 @@ bool dfs(int cnt)
 
     // 每一行，如果某个字母不能填，则返回false；如果某个字母只有一种填法，则直接填
     for (int i = 0; i < N; i++) {
-        int sor = 0, sand = (1 << N) - 1;
-        int drawn = 0;
+        // sor存储所有状态or（或）的结果， sand存储所有数字&的结果
+        int sor = 0, sand = (1 << N) - 1;  //把所有位先置成1
+        int drawn = 0;                     // 当前这一行已经填上了哪些字母， 用drawn表示
         for (int j = 0; j < N; j++) {
             int s = state[i][j];
-            sand &= ~(sor & s);
-            sor |= s;
+            sand &= ~(sor & s);  // 把可以填多个地方的【字母】去掉
+            sor |= s;            // 所有状态的并集
 
-            if (str[i][j] != '-')
-                drawn |= state[i][j];
+            if (str[i][j] != '-')      // 如果这个格子已经有字母了
+                drawn |= state[i][j];  //则把这个【字母】标记为1
         }
 
-        if (sor != (1 << N) - 1) {
+        if (sor !=
+            (1 << N) - 1) {  //如果所有状态的并集，不是16个1的话，就恢复现场
             memcpy(state, bstate[kcnt], sizeof state);
             memcpy(str, bstr[kcnt], sizeof str);
             return false;
         }
 
+        // sand中所有是1的位，表示只能填在某个位置上
         for (int j = sand; j; j -= lowbit(j)) {
-            int t = lowbit(j);
-            if (!(drawn & t)) {
+            int t = lowbit(j);   // 枚举每一个1
+            if (!(drawn & t)) {  //如果这个位置之前没有填过的话
                 for (int k = 0; k < N; k++)
-                    if (state[i][k] & t) {
+                    if (state[i][k] & t) {  // 看一下在哪个位置
                         draw(i, k, map[t]);
                         cnt--;
                         break;
@@ -179,20 +182,23 @@ bool dfs(int cnt)
     if (!cnt)
         return true;
 
+    // 选择被选方案最少的格子
     int x, y, s = 100;
-    for (int i = 0; i < N; i++)
-        for (int j = 0; j < N; j++)
+    for (int i = 0; i < N; i++) {
+        for (int j = 0; j < N; j++) {
             if (str[i][j] == '-' && ones[state[i][j]] < s) {
                 s = ones[state[i][j]];
                 x = i, y = j;
             }
-
+        }
+    }
     memcpy(bstate2[kcnt], state, sizeof state);
     for (int i = state[x][y]; i; i -= lowbit(i)) {
         memcpy(state, bstate2[kcnt], sizeof state);
         draw(x, y, map[lowbit(i)]);
-        if (dfs(cnt - 1))
+        if (dfs(cnt - 1)) {
             return true;
+        }
     }
 
     memcpy(state, bstate[kcnt], sizeof state);
