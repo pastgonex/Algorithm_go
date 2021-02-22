@@ -19,13 +19,15 @@ int n, m;
 vector<PII> alls;
 vector<PII> ans;
 
-void merge() {
+void merge()
+{
     int st = alls[0].first, ed = alls[0].second;
     for (int i = 1; i < alls.size(); i++) {
         if (ed < alls[i].first) {
             ans.push_back({st, ed});
             st = alls[i].first, ed = alls[i].second;
-        } else {
+        }
+        else {
             ed = max(ed, alls[i].second);
         }
     }
@@ -34,7 +36,8 @@ void merge() {
     }
 }
 
-int main() {
+int main()
+{
     cin >> n >> m;
     n++;  // 一共有 n+1 棵树
     while (m--) {

@@ -12,7 +12,8 @@ int n, fa[N];
 
 pair<int, int> p[N];
 
-int get(int x) {
+int get(int x)
+{
     if (x == fa[x]) {
         return x;
     }
@@ -20,7 +21,8 @@ int get(int x) {
     return fa[x] = get(fa[x]);  //路径压缩, 把这个集合中所有的 都指向根
 }
 
-void Supermarket() {
+void Supermarket()
+{
     int d = 0, ans = 0;
     for (int i = 1; i <= n; i++) {
         cin >> p[i].first >> p[i].second;
@@ -45,7 +47,8 @@ void Supermarket() {
     cout << ans << endl;
 }
 
-int main() {
+int main()
+{
     while (cin >> n) {
         Supermarket();
     }

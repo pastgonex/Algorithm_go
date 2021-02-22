@@ -13,9 +13,9 @@ using namespace std;
 
 const int N = 70;
 
-int  n;
-int  sum, length;
-int  sticks[N];
+int n;
+int sum, length;
+int sticks[N];
 bool st[N];
 
 bool cmp(int a, int b)
@@ -100,6 +100,6 @@ int main()
             length++;
         }
     }
-    
+
     return 0;
 }

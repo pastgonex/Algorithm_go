@@ -14,12 +14,12 @@ using namespace std;
 const int N = 16;
 
 // map[N] 表示 log_2 ^ N ,  ones[N] 表示N这个数字的二进制表示中， 有多少个1
-int  map[1 << N], ones[1 << N];
-int  state[N][N];    // 存每个格子的状态
+int map[1 << N], ones[1 << N];
+int state[N][N];     // 存每个格子的状态
 char str[N][N + 1];  // 存整个16*16的数独
 
 // bakcup 备份
-int  bstate[N * N + 1][N][N], bstate2[N * N + 1][N][N];
+int bstate[N * N + 1][N][N], bstate2[N * N + 1][N][N];
 char bstr[N * N + 1][N][N + 1];
 
 inline int lowbit(int x)

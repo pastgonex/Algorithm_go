@@ -15,8 +15,8 @@ const int N = 9;
 // 0- 511
 // ones[i] 表示i这个数字的二进制表示中， 有多少个1
 // map快速求出log_2[x], 例如： map[8] = 3;
-int  ones[1 << N], map[1 << N];
-int  row[N], col[N], cell[3][3];
+int ones[1 << N], map[1 << N];
+int row[N], col[N], cell[3][3];
 char str[100];
 
 inline int lowbit(int x)

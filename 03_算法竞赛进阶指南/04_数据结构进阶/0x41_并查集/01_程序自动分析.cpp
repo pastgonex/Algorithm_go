@@ -20,21 +20,24 @@ vector<PII> eqs, uneqs;
 unordered_map<int, int> H;
 int fa[N * 2];
 
-int mapping(int x) {
+int mapping(int x)
+{
     if (H.count(x)) {
         return H[x];
     }
     return H[x] = cnt++;
 }
 
-int find(int x) {
+int find(int x)
+{
     if (fa[x] != x) {
         fa[x] = find(fa[x]);
     }
     return fa[x];
 }
 
-int main() {
+int main()
+{
     int T;
     cin >> T;
     while (T--) {
@@ -48,7 +51,8 @@ int main() {
             x = mapping(x), y = mapping(y);  //取得离散化之后的值
             if (e) {
                 eqs.push_back({x, y});
-            } else {
+            }
+            else {
                 uneqs.push_back({x, y});
             }
         }

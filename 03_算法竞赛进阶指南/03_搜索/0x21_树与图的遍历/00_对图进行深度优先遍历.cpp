@@ -4,12 +4,13 @@ using namespace std;
 
 int v[10], head[10], Next[10], ver[10];
 
-void dfs(int x) {
+void dfs(int x)
+{
     v[x] = 1;  //记录点x被访问过， v是visit的缩写
     for (int i = head[x]; i; i = Next[i]) {
         int y = ver[i];
         if (v[y]) {
-            continue; // 点y已经被访问过了
+            continue;  // 点y已经被访问过了
         }
         dfs(y);
     }

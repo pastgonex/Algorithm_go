@@ -17,14 +17,16 @@ int n, m;
 int p[N], d[N];
 unordered_map<int, int> S;
 
-int get(int x) {
+int get(int x)
+{
     if (S.count(x) == 0) {
         S[x] = ++n;
     }
     return S[x];
 }
 
-int find(int x) {
+int find(int x)
+{
     if (p[x] != x) {
         int root = find(p[x]);
         d[x] ^= d[p[x]];
@@ -33,7 +35,8 @@ int find(int x) {
     return p[x];
 }
 
-int main() {
+int main()
+{
     cin >> n >> m;
     n = 0;
 
@@ -58,7 +61,8 @@ int main() {
                 res = i - 1;
                 break;
             }
-        } else {
+        }
+        else {
             p[pa] = pb;
             d[pa] = d[a] ^ d[b] ^ t;
         }

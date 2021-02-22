@@ -13,7 +13,8 @@ const int N = 3e4 + 10;
 
 int fa[N], d[N], SIZE[N];
 
-int get(int x) {
+int get(int x)
+{
     if (x == fa[x]) {
         return x;
     }
@@ -22,18 +23,20 @@ int get(int x) {
     return fa[x] = root;  //路径压缩
 }
 
-void merge(int x, int y) {
+void merge(int x, int y)
+{
     x = get(x), y = get(y);
     fa[x] = y, d[x] = SIZE[y];
     SIZE[y] += SIZE[x];
 }
 
-int main() {
+int main()
+{
     int T;
     cin >> T;
 
     for (int i = 1; i <= N; i++) {
-        fa[i] = i;
+        fa[i]   = i;
         SIZE[i] = 1;
     }
 
@@ -43,10 +46,12 @@ int main() {
         cin >> op >> x >> y;
         if (*op == 'M') {
             merge(x, y);
-        } else {
+        }
+        else {
             if (get(x) == get(y)) {
                 cout << abs(d[x] - d[y]) - 1 << endl;
-            } else {
+            }
+            else {
                 cout << -1 << endl;
             }
         }

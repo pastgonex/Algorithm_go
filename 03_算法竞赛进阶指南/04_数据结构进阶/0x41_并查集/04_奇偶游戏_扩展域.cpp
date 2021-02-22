@@ -17,21 +17,24 @@ int n, m;
 int p[N], d[N];
 unordered_map<int, int> S;
 
-int get(int x) {
+int get(int x)
+{
     if (S.count(x) == 0) {
         S[x] = ++n;
     }
     return S[x];
 }
 
-int find(int x) {
+int find(int x)
+{
     if (p[x] != x) {
         p[x] = find(p[x]);
     }
     return p[x];
 }
 
-int main() {
+int main()
+{
     cin >> n >> m;
     n = 0;
 
@@ -50,15 +53,16 @@ int main() {
                 res = i - 1;
                 break;
             }
-            p[find(a)] = find(b);
+            p[find(a)]        = find(b);
             p[find(a + Base)] = find(b + Base);
-        } else {
+        }
+        else {
             if (find(a) == find(b)) {
                 res = i - 1;
                 break;
             }
             p[find(a + Base)] = find(b);
-            p[find(a)] = find(b + Base);
+            p[find(a)]        = find(b + Base);
         }
     }
     cout << res << endl;

@@ -6,7 +6,8 @@ int l;
 
 typedef long long ll;
 
-int main() {
+int main()
+{
     cin >> l;
     ll res = 1;
     l--;
