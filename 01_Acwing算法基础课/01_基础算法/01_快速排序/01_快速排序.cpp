@@ -2,7 +2,6 @@
 // Created by Genes on 2020/11/16.
 //
 // 快速排序
-
 #include <iostream>
 
 using namespace std;
