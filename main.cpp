@@ -1,49 +1,57 @@
+#include <algorithm>
 #include <cstring>
 #include <iostream>
-#include <algorithm>
 
 using namespace std;
 
-const int N = 210, INF = 1e9;
+const int N = 510, M = 100010;
 
-int n, m, Q;
-int d[N][N];
+int n1, n2, m;
+int h[N], e[M], ne[M], idx;
+int match[N];
+bool st[N];
 
-void floyd()
+void add(int a, int b)
 {
-    for (int k = 1; k <= n; k ++ )
-        for (int i = 1; i <= n; i ++ )
-            for (int j = 1; j <= n; j ++ )
-                d[i][j] = min(d[i][j], d[i][k] + d[k][j]);
+    e[idx] = b, ne[idx] = h[a], h[a] = idx++;
+}
+
+bool find(int x)
+{
+    for (int i = h[x]; i != -1; i = ne[i]) {
+        int j = e[i];
+        if (!st[j]) {
+            st[j] = true;
+            if (match[j] == 0 || find(match[j])) {
+                match[j] = x;
+                return true;
+            }
+        }
+    }
+
+    return false;
 }
 
 int main()
 {
-    scanf("%d%d%d", &n, &m, &Q);
+    scanf("%d%d%d", &n1, &n2, &m);
 
-    for (int i = 1; i <= n; i ++ )
-        for (int j = 1; j <= n; j ++ )
-            if (i == j) d[i][j] = 0;
-            else d[i][j] = INF;
+    memset(h, -1, sizeof h);
 
-    while (m -- )
-    {
-        int a, b, c;
-        scanf("%d%d%d", &a, &b, &c);
-        d[a][b] = min(d[a][b], c);
-    }
-
-    floyd();
-
-    while (Q -- )
-    {
+    while (m--) {
         int a, b;
         scanf("%d%d", &a, &b);
-
-        int t = d[a][b];
-        if (t > INF / 2) puts("impossible");
-        else printf("%d\n", t);
+        add(a, b);
     }
+
+    int res = 0;
+    for (int i = 1; i <= n1; i++) {
+        memset(st, false, sizeof st);
+        if (find(i))
+            res++;
+    }
+
+    printf("%d\n", res);
 
     return 0;
 }
