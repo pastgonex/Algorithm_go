@@ -8,7 +8,7 @@ const int N = 5e2 + 10, M = 1e5 + 10;
 
 int n1, n2, m;
 int h[N], e[M], ne[M], idx;
-int match[N];
+int match[N];  // match[j]=x 表示 第j个妹子匹配了第x个男生
 bool st[N];
 
 void add(int a, int b)
