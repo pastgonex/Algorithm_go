@@ -33,14 +33,14 @@ int topsort()
 
         for (int i = head[t]; i != -1; i = ne[i]) {
             int j = e[i];  //遍历t的所有出边
-            d[j]--;        // j的入度-1
+            d[j]--;  // j的入度-1
             if (!d[j]) {
                 q.push(j);  // 如果j入度为0， 加入队列当中
             }
         }
     }
 
-    return cnt >= n;
+    return cnt >= n;  //表示如果n个点都入队了话,那么该图为拓扑图,返回true,否则返回false
 }
 
 int main()
