@@ -20,10 +20,11 @@ int n, m;
 // a和b是每次需要合并的序列, c是中间临时缓存的序列
 int a[N], b[N], c[N];
 
-void work() {
+void work()
+{
     // 默认是大根堆, 这样可以变成小根堆
     priority_queue<PII, vector<PII>, greater<PII>> heap;
-    for (int i = 0; i < n; i++) {     // 小根堆, 堆顶就是最小值
+    for (int i = 0; i < n; i++) {  // 小根堆, 堆顶就是最小值
         heap.push({a[0] + b[i], 0});  // push进去的是一个pair
     }
     for (int i = 0; i < n; i++) {
@@ -40,7 +41,8 @@ void work() {
     // }
 }
 
-int main() {
+int main()
+{
     int T;
     cin >> T;
     while (T--) {
