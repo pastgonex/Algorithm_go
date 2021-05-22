@@ -3,22 +3,24 @@
 
 using namespace std;
 
-const int N = 5e1 + 5;
+const int N = 5;
 
-int n, m;
 int a[N];
 
 int main()
 {
-    cin >> n >> m;
-    for (int i = 0; i < m; i++) {
+    for (int i = 0; i < 4; i++) {
         cin >> a[i];
     }
-    sort(a, a + m);
-    int ans = 0x3f3f3f3f;
-    for (int i = 0; i <= m - n; i++) {
-        int j = i + n - 1;
-        ans = min(a[j] - a[i], ans);
+    sort(a, a + 4);
+    int ans = 0;
+    for (int i = 0; i < 4; i++) {
+        int j = i + 1;
+        while (a[i] == a[j]) {
+            ans++;
+            j++;
+        }
+        i = j - 1;
     }
     cout << ans << endl;
     return 0;
