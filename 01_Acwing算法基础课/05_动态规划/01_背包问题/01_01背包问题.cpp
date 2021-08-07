@@ -57,7 +57,6 @@ int main()
     for (int i = 1; i <= n; i++) {
         cin >> v[i] >> w[i];
     }
-
     // 4 5
     // 1 2
     // 2 4

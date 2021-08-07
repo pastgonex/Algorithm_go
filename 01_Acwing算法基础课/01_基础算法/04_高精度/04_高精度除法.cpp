@@ -45,6 +45,7 @@ int main() {
     for (int i = C.size() - 1; i >= 0; i--) {
         cout << C[i];
     }
+    
     cout << endl << r << endl;
     return 0;
 }

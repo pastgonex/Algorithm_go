@@ -1,6 +1,8 @@
 # Project exclude paths
 # github仓库中没有的， 才能gitignore
 /cmake-build-debug/
+/.gitignore
+/DongBei
 /.vscode/
 /DebugFiles/
 .DS_Store

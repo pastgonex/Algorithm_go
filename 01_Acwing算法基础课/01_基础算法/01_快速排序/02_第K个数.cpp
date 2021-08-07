@@ -16,7 +16,7 @@ int quick_select(int l, int r, int k) {
     if (l >= r) {
         return q[l];
     }
-    int x = q[l + r >> 1];
+    int x = q[(l + r) >> 1];
     int i = l - 1, j = r + 1;
     while (i < j) {
         do
@@ -32,9 +32,9 @@ int quick_select(int l, int r, int k) {
     // l - j 有 j-l+1个数字
     int sl = j - l + 1;
     if (k <= sl) {
-        quick_select(l, j, k);
+        return quick_select(l, j, k);
     } else {
-        quick_select(j + 1, r, k - sl);
+        return quick_select(j + 1, r, k - sl);
     }
 }
 

@@ -24,7 +24,7 @@ void get_primes(int n)
         // 埃氏筛法
         // 小于 x^2的x的倍数在扫描更小的数时就已经被标记过了.
         // 因此， 对于每个数x， 我们只需要从x^2 开始， 吧x^2, (x+1)x, ...(N/x)*x 标记为合数即可
-        // for (int j = i; j <= n; j++) {
+        // for (int j = i; j <= n / i; j++) {
         //     st[i * j] = true;
         // }
 

@@ -115,6 +115,5 @@ int main()
         printf("%09d", C[i]);
     }
     cout << endl;
-
     return 0;
 }

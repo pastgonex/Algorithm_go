@@ -22,10 +22,9 @@ int p[N], l[N], r[N];
 PII a[N], ans[N];
 
 int main() {
-    ios;
-    cin >> n;
+    scanf("%d", &n);
     for (int i = 1; i <= n; i++) {
-        cin >> a[i].first;
+        scanf("%d", &a[i].first);
         a[i].second = i;
     }
 
@@ -49,7 +48,7 @@ int main() {
         l[right] = left, r[left] = right;
     }
     for (int i = 2; i <= n; i++) {
-        cout << ans[i].first << " " << ans[i].second << endl;
+        printf("%d %d\n", ans[i].first, ans[i].second);
     }
     return 0;
 }

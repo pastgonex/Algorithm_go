@@ -9,7 +9,7 @@ int quick_pow(int a, int k, int p)
     int res = 1 % p;
     while (k) {
         if (k & 1) {
-            res *= (LL)res * a % p;
+            res = (LL)res * a % p;
         }
         k >>= 1;
         a = (LL)a * a % p;
