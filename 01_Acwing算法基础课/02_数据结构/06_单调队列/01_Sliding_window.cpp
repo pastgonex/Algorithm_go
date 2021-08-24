@@ -1,94 +1,45 @@
-/*
- * Project: 06_Monotonic_Queue
- * File Created:Thursday, December 31st 2020, 8:11:16 pm
- * Author: Bug-Free
- * Problem:AcWing154. 滑动窗口
- */
-// brute-force
-// #include <climits>
-// #include <iostream>
-
-// using namespace std;
-
-// const int N = 1e6 + 10;
-
-// int n, k;
-// int a[N];
-
-// int main() {
-//     cin >> n >> k;
-
-//     for (int i = 0; i < n; i++) {
-//         cin >> a[i];
-//     }
-//     for (int i = 0; i <= n - k; i++) {
-//         int minn = INT_MAX;
-//         for (int j = i; j < i + k; j++) {
-//             minn = min(minn, a[j]);
-//         }
-//         cout << minn << " ";
-//     }
-//     cout << endl;
-//     for (int i = 0; i <= n - k; i++) {
-//         int maxn = INT_MIN;
-//         for (int j = i; j < i + k; j++) {
-//             maxn = max(maxn, a[j]);
-//         }
-//         cout << maxn << " ";
-//     }
-//     cout << endl;
-//     return 0;
-// }
-
-// 单调队列
-#include <deque>
 #include <iostream>
 
 using namespace std;
 
-const int N = 1e6 + 10;
+const int N = 1000010;
 
-int n, k;
-deque<int> q;
-int a[N];
+int a[N], q[N];
 
-int main() {
-    cin >> n >> k;
+int main()
+{
+    int n, k;
+    scanf("%d%d", &n, &k);
+    for (int i = 0; i < n; i++)
+        scanf("%d", &a[i]);
+
+    int hh = 0, tt = -1;
     for (int i = 0; i < n; i++) {
-        cin >> a[i];
+        if (hh <= tt && i - k + 1 > q[hh])
+            hh++;
+        while (hh <= tt && a[q[tt]] >= a[i])
+            tt--;
+        q[++tt] = i;
+        if (i >= k - 1)
+            printf("%d ", a[q[hh]]);
     }
-    // 维护窗口最小值
+
+    puts("");
+
+    hh = 0, tt = -1;
     for (int i = 0; i < n; i++) {
-        // 判断是否已经滑出窗口
-        if (!q.empty() && i - k + 1 > q.front()) {
-            q.pop_front();
-        }
-        while (!q.empty() && a[q.back()] >= a[i]) {
-            q.pop_back();
-        }
-        q.push_back(i);
-        if (i >= k - 1) {
-            cout << a[q.front()] << " ";
-        }
+        if (hh <= tt && i - k + 1 > q[hh])
+            hh++;
+
+        while (hh <= tt && a[q[tt]] <= a[i])
+            tt--;
+        q[++tt] = i;
+
+        if (i >= k - 1)
+            printf("%d ", a[q[hh]]);
     }
-    cout << endl;
-    // 维护窗口最大值
-    // q.clear();
-    for (int i = 0; i < n; i++) {
-        // 判断是否已经滑出窗口
-        if (!q.empty() && i - k + 1 > q.front()) {
-            q.pop_front();
-        }
-        while (!q.empty() && a[q.back()] <= a[i]) {
-            q.pop_back();
-        }
-        q.push_back(i);
-        if (i >= k - 1) {
-            cout << a[q.front()] << " ";
-        }
-    }
-    cout << endl;
+
+    puts("");
+
     return 0;
 }
-// 1 3 -1 -3 5 3 6 7
-// -1 -3 -3 -3 5 3
