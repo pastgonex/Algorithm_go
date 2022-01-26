@@ -29,7 +29,7 @@ int main() {
     for (int i = 1; i <= n; i++) {
         h[i] = h[i - 1] * P + str[i];
         p[i] = p[i - 1] * P;
-    }
+    } 
 
     while (m--) {
         int l1, r1, l2, r2;
