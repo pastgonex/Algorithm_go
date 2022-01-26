@@ -3,7 +3,7 @@
 
 using namespace std;
 
-class Solution {
+class Solution1 {
 public:
     int removeDuplicates(vector<int>& nums) {
         int cnt = 1, n = nums.size();
@@ -16,5 +16,18 @@ public:
             i = j;
         }
         return cnt;
+    }
+};
+
+class Solution2 {
+public:
+    int removeDuplicates(vector<int>& nums) {
+        int n = 0;
+        for (int i = 0; i < nums.size(); i++) {
+            if (i == 0 || nums[i] != nums[i - 1]) {
+                nums[n++] = nums[i];
+            }
+        }
+        return n;
     }
 };
